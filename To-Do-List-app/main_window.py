@@ -16,48 +16,100 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLineEdit,
-    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
-    QStatusBar, QTextEdit, QVBoxLayout, QWidget)
+    QMainWindow, QMenuBar, QPushButton, QRadioButton,
+    QSizePolicy, QStatusBar, QTextEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(388, 538)
-        MainWindow.setStyleSheet(u"background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));")
+        MainWindow.resize(396, 549)
+        MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.tasks = QVBoxLayout()
-        self.tasks.setObjectName(u"tasks")
+        self.verticalLayout = QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.gl_tasks = QGridLayout()
+        self.gl_tasks.setObjectName(u"gl_tasks")
 
-        self.gridLayout.addLayout(self.tasks, 0, 0, 1, 1)
+        self.verticalLayout.addLayout(self.gl_tasks)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.tb_newtask = QLineEdit(self.centralwidget)
-        self.tb_newtask.setObjectName(u"tb_newtask")
+        self.tb_new_task = QLineEdit(self.centralwidget)
+        self.tb_new_task.setObjectName(u"tb_new_task")
+        font = QFont()
+        font.setPointSize(14)
+        self.tb_new_task.setFont(font)
 
-        self.horizontalLayout.addWidget(self.tb_newtask)
+        self.horizontalLayout.addWidget(self.tb_new_task)
 
-        self.btn_add = QPushButton(self.centralwidget)
-        self.btn_add.setObjectName(u"btn_add")
+        self.btn_new_task = QPushButton(self.centralwidget)
+        self.btn_new_task.setObjectName(u"btn_new_task")
+        self.btn_new_task.setFont(font)
 
-        self.horizontalLayout.addWidget(self.btn_add)
+        self.horizontalLayout.addWidget(self.btn_new_task)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.pushButton_2 = QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        font1 = QFont()
+        font1.setPointSize(11)
+        self.pushButton_2.setFont(font1)
+
+        self.gridLayout.addWidget(self.pushButton_2, 1, 0, 1, 1)
+
+        self.pushButton = QPushButton(self.centralwidget)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setFont(font1)
+
+        self.gridLayout.addWidget(self.pushButton, 0, 0, 1, 1)
+
+        self.tb_date = QLineEdit(self.centralwidget)
+        self.tb_date.setObjectName(u"tb_date")
+
+        self.gridLayout.addWidget(self.tb_date, 0, 1, 1, 2)
+
+        self.tb_time = QLineEdit(self.centralwidget)
+        self.tb_time.setObjectName(u"tb_time")
+
+        self.gridLayout.addWidget(self.tb_time, 1, 1, 1, 2)
+
+        self.pushButton_3 = QPushButton(self.centralwidget)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setFont(font1)
+
+        self.gridLayout.addWidget(self.pushButton_3, 2, 0, 1, 1)
+
+        self.rdb_high = QRadioButton(self.centralwidget)
+        self.rdb_high.setObjectName(u"rdb_high")
+        self.rdb_high.setFont(font1)
+
+        self.gridLayout.addWidget(self.rdb_high, 2, 1, 1, 1)
+
+        self.rdb_low = QRadioButton(self.centralwidget)
+        self.rdb_low.setObjectName(u"rdb_low")
+        self.rdb_low.setFont(font1)
+
+        self.gridLayout.addWidget(self.rdb_low, 2, 2, 1, 1)
+
+
+        self.verticalLayout.addLayout(self.gridLayout)
 
         self.tb_description = QTextEdit(self.centralwidget)
         self.tb_description.setObjectName(u"tb_description")
 
-        self.gridLayout.addWidget(self.tb_description, 2, 0, 1, 1)
+        self.verticalLayout.addWidget(self.tb_description)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 388, 22))
+        self.menubar.setGeometry(QRect(0, 0, 396, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -69,7 +121,12 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"To Do app.\ud83d\udcdd", None))
-        self.btn_add.setText(QCoreApplication.translate("MainWindow", u"Add task", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"To Do List-app.", None))
+        self.btn_new_task.setText(QCoreApplication.translate("MainWindow", u"Add Task", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Enter time(hh:mm):", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Enter date(yyyy/mm/dd):", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Priority(high/low):", None))
+        self.rdb_high.setText(QCoreApplication.translate("MainWindow", u"High", None))
+        self.rdb_low.setText(QCoreApplication.translate("MainWindow", u"Low", None))
     # retranslateUi
 

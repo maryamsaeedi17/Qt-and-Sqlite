@@ -30,19 +30,6 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.pushButton_4 = QPushButton(self.centralwidget)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        font = QFont()
-        font.setFamilies([u"Segoe Script"])
-        font.setPointSize(14)
-        font.setBold(True)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet(u"background-color: rgb(255, 252, 172);\n"
-"color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 255), stop:0.166 rgba(255, 255, 0, 255), stop:0.333 rgba(0, 255, 0, 255), stop:0.5 rgba(0, 255, 255, 255), stop:0.666 rgba(0, 0, 255, 255), stop:0.833 rgba(255, 0, 255, 255), stop:1 rgba(255, 0, 0, 255));\n"
-"")
-
-        self.verticalLayout.addWidget(self.pushButton_4)
-
         self.gl_tasks = QGridLayout()
         self.gl_tasks.setObjectName(u"gl_tasks")
 
@@ -52,16 +39,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.tb_new_task = QLineEdit(self.centralwidget)
         self.tb_new_task.setObjectName(u"tb_new_task")
-        font1 = QFont()
-        font1.setPointSize(14)
-        self.tb_new_task.setFont(font1)
+        font = QFont()
+        font.setPointSize(14)
+        self.tb_new_task.setFont(font)
         self.tb_new_task.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.horizontalLayout.addWidget(self.tb_new_task)
 
         self.btn_new_task = QPushButton(self.centralwidget)
         self.btn_new_task.setObjectName(u"btn_new_task")
-        self.btn_new_task.setFont(font1)
+        self.btn_new_task.setFont(font)
         self.btn_new_task.setStyleSheet(u"background-color: rgb(121, 255, 12);")
 
         self.horizontalLayout.addWidget(self.btn_new_task)
@@ -73,16 +60,16 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        font2 = QFont()
-        font2.setPointSize(11)
-        self.pushButton_2.setFont(font2)
+        font1 = QFont()
+        font1.setPointSize(11)
+        self.pushButton_2.setFont(font1)
         self.pushButton_2.setStyleSheet(u"background-color: rgb(255, 255, 161);")
 
         self.gridLayout.addWidget(self.pushButton_2, 1, 0, 1, 1)
 
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setFont(font2)
+        self.pushButton.setFont(font1)
         self.pushButton.setStyleSheet(u"background-color: rgb(255, 255, 161);")
 
         self.gridLayout.addWidget(self.pushButton, 0, 0, 1, 1)
@@ -102,24 +89,24 @@ class Ui_MainWindow(object):
 
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setFont(font2)
+        self.pushButton_3.setFont(font1)
         self.pushButton_3.setStyleSheet(u"background-color: rgb(255, 255, 161);")
 
         self.gridLayout.addWidget(self.pushButton_3, 2, 0, 1, 1)
 
         self.rdb_high = QRadioButton(self.centralwidget)
         self.rdb_high.setObjectName(u"rdb_high")
-        font3 = QFont()
-        font3.setPointSize(11)
-        font3.setBold(True)
-        self.rdb_high.setFont(font3)
+        font2 = QFont()
+        font2.setPointSize(11)
+        font2.setBold(True)
+        self.rdb_high.setFont(font2)
         self.rdb_high.setStyleSheet(u"color: rgb(255, 0, 0);")
 
         self.gridLayout.addWidget(self.rdb_high, 2, 1, 1, 1)
 
         self.rdb_low = QRadioButton(self.centralwidget)
         self.rdb_low.setObjectName(u"rdb_low")
-        self.rdb_low.setFont(font3)
+        self.rdb_low.setFont(font2)
         self.rdb_low.setStyleSheet(u"color: rgb(255, 255, 255);")
 
         self.gridLayout.addWidget(self.rdb_low, 2, 2, 1, 1)
@@ -149,7 +136,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"To Do List-app. \ud83d\udcdd", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Do more of what makes you happy!", None))
         self.btn_new_task.setText(QCoreApplication.translate("MainWindow", u"Add Task", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Enter time(hh:mm):", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Enter date(yyyy/mm/dd):", None))

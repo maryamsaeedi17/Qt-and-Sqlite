@@ -19,12 +19,20 @@ class MainWindow(QMainWindow):
     def new_task(self):
         new_title=self.ui.tb_new_task.text()
         new_description=self.ui.tb_description.toPlainText()
-        feedback=self.db.add_new_task(new_title, new_description)
+        if self.ui.rdb_high.isChecked():
+            prt="high"
+        elif self.ui.rdb_low.isChecked():
+            prt="low"
+        new_date=self.ui.tb_date.text()
+        new_time=self.ui.tb_time.text()
+        feedback=self.db.add_new_task(new_title, new_description, prt, new_date, new_time)
         if feedback==True:
             self.read_from_database()
             self.ui.tb_new_task.setText("")
             self.ui.tb_description.setText("")
-        else:
+            self.ui.tb_date.setText("")
+            self.ui.tb_time.setText("")
+        elif feedback==False:
             msg_box=QMessageBox()
             msg_box.setText("There is a problem!")
             msg_box.exec()
@@ -46,7 +54,7 @@ class MainWindow(QMainWindow):
             self.ui.gl_tasks.addWidget(new_btn, i, 2)
 
             #QToolTip.setFont(('SansSerif', 10))
-            new_lable.setToolTip(tasks[i][2] + "\n" +"date")
+            new_lable.setToolTip(tasks[i][2] + "\n" + tasks[i][5] + "\n" + tasks[i][6])
             new_lable.show()
 
 

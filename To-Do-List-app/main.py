@@ -40,6 +40,17 @@ class MainWindow(QMainWindow):
             msg_box.setText("There is a problem!")
             msg_box.exec()
 
+    def remove(self, id):
+        if id is not None:
+            self.db.remove_tasks(id)
+        items = []
+        for i in range(self.ui.gl_tasks.count()):
+            item = self.ui.gl_tasks.itemAt(i).widget()
+            if item:
+                items.append(item)
+        for item in items:
+            item.deleteLater()
+        self.read_from_database()
 
     def read_from_database(self):
         tasks=self.db.get_tasks()
@@ -51,7 +62,9 @@ class MainWindow(QMainWindow):
             new_lable.setText(tasks[i][1])
             new_btn.setStyleSheet("background-color: red; border-style: outset; border-width: 2px; border-radius: 10px; border-color: beige; font: bold 14px; max-width: 1em; padding: 6px;")
             new_btn.setText("🗑")
-            new_btn.clicked.connect(partial(self.db.remove_tasks, tasks[i][0]))
+            #new_btn.clicked.connect(partial(self.db.remove_tasks, tasks[i][0]))
+            new_btn.clicked.connect(partial(self.remove, tasks[i][0]))
+            
 
             new_checkbox.clicked.connect(partial(self.db.task_done, tasks[i][0]))
 
